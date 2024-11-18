@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:System;assembly=mscorlib"           
+             x:Class="DataBinding.FormPage"
+             Title="Formulario Persona">
+    <!-- ScrollView para habilitar desplazamiento -->
+    <ScrollView HeightRequest="500">
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label 
+                Text="Formulario de Persona"
+                FontSize="24"
+                HorizontalOptions="Center"
+                VerticalOptions="Start" />
+
+            <!-- Campo para ID Persona -->
+            <Label Text="ID Persona:" FontAttributes="Bold"/>
+            <Entry x:Name="IdPersonaEntry" Placeholder="Ingrese el ID de la persona" Keyboard="Numeric"/>
+
+            <!-- Campo para Nombre -->
+            <Label Text="Nombre:" FontAttributes="Bold"/>
+            <Entry x:Name="NombreEntry" Placeholder="Ingrese el nombre"/>
+
+            <!-- Campo para Apellido -->
+            <Label Text="Apellido:" FontAttributes="Bold"/>
+            <Entry x:Name="ApellidoEntry" Placeholder="Ingrese el apellido"/>
+
+            <!-- Campo para Sexo -->
+            <Label Text="Sexo (h/m):" FontAttributes="Bold"/>
+            <Picker x:Name="SexoPicker" Title="Seleccione el sexo">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>h</x:String>
+                        <x:String>m</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <!-- Campo para Fecha de Nacimiento -->
+            <Label Text="Fecha de Nacimiento:" FontAttributes="Bold"/>
+            <DatePicker x:Name="FechaNacimientoPicker" Date="{x:Static local:DateTime.Now}"/>
+
+            <!-- Campo para ID Rol -->
+            <Label Text="ID Rol:" FontAttributes="Bold"/>
+            <Entry x:Name="IdRolEntry" Placeholder="Ingrese el ID del rol" Keyboard="Numeric"/>
+
+            <!-- Botón para enviar los datos -->
+            <Button 
+                Text="Enviar"
+                Clicked="OnEnviarClicked"
+                BackgroundColor="DodgerBlue"
+                TextColor="White"
+                CornerRadius="5"
+                />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
